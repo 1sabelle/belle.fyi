@@ -1,0 +1,22 @@
+:root {
+    --color-navy:   #181F30;
+    --color-periwinkle: #9fa6ce;
+    --color-lilac:   rgb(208, 192, 230);
+    --color-cream:  #eae0cf;
+
+    --font-display: 'Gilda Display', Georgia, serif;
+    --font-accent: 'Harmattan', system-ui, sans-serif;
+    --font-body: 'Instrument Sans', system-ui, sans-serif;
+  }
+
+  body {
+      margin: 0;
+      font-family: var(--font-body);
+      background: var(--color-navy);
+      color: var(--color-lilac);
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-display);
+      font-weight: 500;
+    }

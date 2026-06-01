@@ -1,0 +1,48 @@
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    font-family: system-ui, sans-serif;
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  h1 {
+    margin-bottom: 0.25rem;
+  }
+
+  .tagline {
+    color: var(--color-lilac);
+    font-family: var(--font-display);
+    padding-left: 1.7rem;
+    margin-top: 0;
+    font-size: 1.3rem;
+  }
+
+  .body-text {
+    color: var(--color-cream);
+    font-family: var(--font-body);
+    font-size: 1.0rem;
+  }
+
+  .body-hidden {
+    color: var(--color-navy);
+    font-family: var(--font-body);
+    font-size: 1.0rem;
+  }
+
+  section {
+    margin-top: 2rem;
+  }
+
+  .masthead {
+    display: flex;
+    align-items: center;          
+    justify-content: space-between; 
+    gap: 2rem;
+    flex-wrap: wrap;              
+  }
+
+  .masthead__title h1 {
+    margin: 0;                   
+  }
