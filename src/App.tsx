@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import Sparkle from './Sparkle'
 import Nav from './Nav'
+import Starfield from './Starfield'
 import './App.css'
 
 function Home() {
@@ -31,7 +32,9 @@ function Contact() {
 
 function App() {
   return (
-    <main className="container">
+    <>
+      <Starfield />
+      <main className="container">
       <header className="masthead">
         <div className="masthead__title">
           <h1>
@@ -52,7 +55,8 @@ function App() {
         <Route path="/work" element={<Work />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
-    </main>
+      </main>
+    </>
   )
 }
 
