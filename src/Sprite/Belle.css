@@ -1,0 +1,154 @@
+.belle-dock {
+  position: fixed;
+  right: 6rem;
+  bottom: 6rem;
+  z-index: 10;
+}
+
+.belle {
+  --belle-size: 104px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: var(--belle-size);
+  height: var(--belle-size);
+  animation: belle-bob 9s ease-in-out infinite;
+}
+
+.belle__haze {
+  position: absolute;
+  inset: -8%;
+  border-radius: 47% 53% 44% 56% / 55% 48% 52% 45%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(159, 166, 206, 0.38) 0%,
+    rgba(208, 192, 230, 0.18) 38%,
+    transparent 66%
+  );
+  filter: blur(9px);
+  animation: belle-morph 11s ease-in-out infinite, belle-pulse 5s ease-in-out infinite;
+}
+
+.belle__rays {
+  position: absolute;
+  inset: 0;
+  animation: belle-sweep 44s linear infinite;
+}
+.belle__ray {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--ray-w, 2px);
+  height: var(--ray-len, 60%);
+  transform-origin: top center;
+  transform: translateX(-50%) rotate(var(--ray-angle, 0deg));
+  background: linear-gradient(
+    to bottom,
+    rgba(234, 224, 207, 0.7) 0%,
+    rgba(159, 166, 206, 0.3) 45%,
+    transparent 100%
+  );
+  opacity: var(--ray-o, 0.6);
+  filter: blur(2px);
+  animation: belle-flicker 4s ease-in-out infinite;
+}
+
+.belle__core {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16%;
+  width: 40%;
+  height: 40%;
+  border-radius: 47% 53% 44% 56% / 55% 48% 52% 45%;
+  background: radial-gradient(
+    circle at 48% 42%,
+    #ffffff 0%,
+    var(--color-cream) 22%,
+    var(--color-lilac) 48%,
+    rgba(159, 166, 206, 0.4) 74%,
+    transparent 100%
+  );
+  filter: blur(1.5px);
+  animation: belle-morph 9s ease-in-out infinite, belle-pulse 5s ease-in-out infinite;
+}
+
+.belle__glint {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0%, rgba(159, 166, 206, 0.5) 45%, transparent 70%);
+  animation: belle-twinkle 4s ease-in-out infinite;
+}
+.belle__glint--1 { top: 4%;  left: 58%; animation-delay: 0s; }
+.belle__glint--2 { top: 26%; left: 90%; animation-delay: 1.4s; }
+.belle__glint--3 { top: 78%; left: 18%; animation-delay: 2.6s; }
+
+.belle--happy { animation: belle-bounce 0.6s ease; }
+.belle--happy .belle__haze {
+  animation: belle-morph 11s ease-in-out infinite, belle-flare 0.6s ease;
+}
+
+.belle--confused { animation: belle-wobble 0.7s ease; }
+.belle--confused .belle__core { opacity: 0.7; }
+
+.belle--listening .belle__haze { filter: blur(9px) brightness(1.4); }
+
+.belle--sleeping .belle__haze,
+.belle--sleeping .belle__rays,
+.belle--sleeping .belle__core { opacity: 0.45; }
+
+@keyframes belle-bob {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(18px, -24px); }
+  50% { transform: translate(-14px, -36px); }
+  75% { transform: translate(-21px, -16px); }
+}
+@keyframes belle-sweep {
+  to { transform: rotate(360deg); }
+}
+@keyframes belle-pulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+@keyframes belle-morph {
+  0%, 100% { border-radius: 47% 53% 44% 56% / 55% 48% 52% 45%; transform: scale(1) rotate(0deg); }
+  33% { border-radius: 58% 42% 60% 40% / 42% 58% 40% 60%; transform: scale(1.06) rotate(4deg); }
+  66% { border-radius: 40% 60% 50% 50% / 60% 40% 58% 42%; transform: scale(0.97) rotate(-3deg); }
+}
+@keyframes belle-flicker {
+  0%, 100% { opacity: calc(var(--ray-o, 0.6) * 0.45); }
+  50% { opacity: var(--ray-o, 0.6); }
+}
+@keyframes belle-twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+@keyframes belle-bounce {
+  0% { transform: translateY(0) scale(1); }
+  30% { transform: translateY(-14px) scale(1.08); }
+  60% { transform: translateY(0) scale(0.98); }
+  100% { transform: translateY(0) scale(1); }
+}
+@keyframes belle-flare {
+  0%, 100% { filter: blur(9px) brightness(1); }
+  40% { filter: blur(12px) brightness(1.8); }
+}
+@keyframes belle-wobble {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-8deg); }
+  75% { transform: rotate(8deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .belle,
+  .belle__haze,
+  .belle__rays,
+  .belle__ray,
+  .belle__core,
+  .belle__glint {
+    animation: none !important;
+  }
+}

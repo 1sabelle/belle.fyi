@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Sparkle from './Sparkle'
 import Nav from './Nav'
 import Starfield from './Starfield'
+import Belle from './Sprite/Belle'
 import './App.css'
 
 function Home() {
@@ -34,6 +35,9 @@ function App() {
   return (
     <>
       <Starfield />
+      <div className="belle-dock">
+        <Belle />
+      </div>
       <main className="container">
       <header className="masthead">
         <div className="masthead__title">
