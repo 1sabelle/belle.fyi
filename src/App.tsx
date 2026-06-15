@@ -37,13 +37,16 @@ function Contact() {
     <section className="hero">
       <p className="hero__eyebrow">but i am here now</p>
       <h2 className="hero__line">
-        ‟there is society, where none intrudes
+        ‟there is society,
         <br />
+        where none intrudes
+      </h2>
+      <p className="hero__cite">… Byron</p>
+      <p className="hero__moon-text" aria-hidden="true">
         by the deep sea, and music in its roar:
         <br />
         i love not man the less, but nature more
-      </h2>
-      <p className="hero__cite">… Byron</p>
+      </p>
     </section>
   )
 }
