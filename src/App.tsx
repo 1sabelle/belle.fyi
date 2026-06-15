@@ -35,9 +35,9 @@ function App() {
   return (
     <>
       <Starfield />
-      <div className="belle-dock">
+      {/* <div className="belle-dock">
         <Belle />
-      </div>
+      </div> */}
       <main className="container">
       <header className="masthead">
         <div className="masthead__title">
