@@ -109,21 +109,31 @@
     animation: hero-rise 1s ease 0.3s forwards;
   }
 
-  .hero__moon-text {
+  .hero__moon-block {
     position: absolute;
     z-index: 1;
     right: 0.5rem;
     bottom: 0;
     max-width: 20rem;
-    margin: 0;
     text-align: right;
+    opacity: 0;
+    animation: hero-rise 1s ease 0.45s forwards;
+  }
+
+  .hero__moon-text {
+    margin: 0;
     font-family: var(--font-display);
     font-size: 2.5rem;
     line-height: 1.5;
     color: var(--color-navy);
     text-wrap: balance;
-    opacity: 0;
-    animation: hero-rise 1s ease 0.45s forwards;
+  }
+
+  .hero__moon-cite {
+    margin: 0;
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--color-navy);
   }
 
   @keyframes hero-rise {
@@ -140,7 +150,7 @@
     .hero__eyebrow,
     .hero__line,
     .hero__cite,
-    .hero__moon-text,
+    .hero__moon-block,
     .hero__moon {
       animation: none;
       opacity: 1;

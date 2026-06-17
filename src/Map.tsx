@@ -28,11 +28,14 @@ export default function Map() {
         <br />
         and music in its roar:
       </h2>
-      <p className="hero__moon-text" aria-hidden="true">
-        i love not man the less,
-        <br />
-        but nature more
-      </p>
+      <div className="hero__moon-block" aria-hidden="true">
+        <p className="hero__moon-text">
+          ‟i love not man the less,
+          <br />
+          but nature more
+        </p>
+        <p className="hero__moon-cite">… Byron</p>
+      </div>
 
       <form className="message-form" onSubmit={handleSubmit}>
         <label className="message-form__label" htmlFor="message">
