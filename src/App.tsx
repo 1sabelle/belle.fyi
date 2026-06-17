@@ -4,7 +4,7 @@ import Nav from './Nav'
 import Starfield from './Starfield'
 import MessageStars from './MessageStars'
 import { MessagesProvider } from './MessagesContext'
-import Map from './Map'
+import MessageForm from './MessageForm'
 import './App.css'
 
 function Home() {
@@ -16,7 +16,7 @@ function Home() {
         <br />
         in the pathless woods
       </h2>
-      <p className="hero__cite">… Byron</p>
+      <MessageForm />
     </section>
   )
 }
@@ -30,7 +30,6 @@ function Work() {
         <br />
         on the lonely shore
       </h2>
-      <p className="hero__cite">… Byron</p>
     </section>
   )
 }
@@ -44,7 +43,18 @@ function Contact() {
         <br />
         where none intrudes
       </h2>
-      <p className="hero__cite">… Byron</p>
+      <div className="hero__moon-block" aria-hidden="true">
+        <p className="hero__moon-text">
+          by the deep sea,
+          <br />
+          and music in its roar:
+          <br />
+          i love not man the less,
+          <br />
+          but nature more
+        </p>
+        <p className="hero__moon-cite">… Byron</p>
+      </div>
     </section>
   )
 }
@@ -78,7 +88,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/work" element={<Work />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/map" element={<Map />} />
       </Routes>
       </main>
     </MessagesProvider>

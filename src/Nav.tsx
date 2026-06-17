@@ -4,7 +4,7 @@ import './Nav.css'
 type Phase = 'new' | 'waxing' | 'full' | 'waning'
 
 // x-position of the shadow for each moon phase (relative to center).
-// the cycle reads left-to-right across the nav: new → waxing → full → waning
+// the cycle reads left-to-right across the nav: waxing → full → waning
 const SHADOW_X: Record<Phase, number> = {
   new: 12,
   waxing: 6,
@@ -27,10 +27,9 @@ function Moon({ phase }: { phase: Phase }) {
 }
 
 const PAGES = [
-  { to: '/', label: 'home', phase: 'new' },
-  { to: '/work', label: 'work', phase: 'waxing' },
-  { to: '/contact', label: 'contact', phase: 'full' },
-  { to: '/map', label: 'map', phase: 'waning' },
+  { to: '/', label: 'home', phase: 'waxing' },
+  { to: '/work', label: 'work', phase: 'full' },
+  { to: '/contact', label: 'contact', phase: 'waning' },
 ] as const
 
 function NavItem({ to, label, phase }: (typeof PAGES)[number]) {
