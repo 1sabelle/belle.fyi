@@ -52,13 +52,15 @@
   transform: translateX(-50%);
   width: max-content;
   max-width: 16rem;
-  padding: 0;
+  padding: 0.6rem 0.8rem;
   text-align: left;
   font-family: var(--font-body);
   font-size: 0.85rem;
   line-height: 1.4;
   color: var(--color-cream);
-  text-shadow: 0 1px 8px rgba(24, 31, 48, 0.9);
+  background: var(--color-navy);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 16px rgba(24, 31, 48, 0.6);
   cursor: default;
   animation: bubble-in 0.25s ease;
 }
