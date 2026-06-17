@@ -9,6 +9,10 @@
     --font-body: 'Instrument Sans', system-ui, sans-serif;
   }
 
+  #root {
+    overflow-x: clip;
+    }
+
   body {
       margin: 0;
       font-family: var(--font-body);
