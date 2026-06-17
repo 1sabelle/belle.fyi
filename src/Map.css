@@ -51,9 +51,9 @@
   flex: 0 0 auto;
   display: inline-grid;
   min-width: 3.5ch;
-  font-family: var(--font-accent);
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-style: italic;
 }
 
 .message-form__sizer::after {
@@ -66,9 +66,6 @@
 .message-form__part--alias {
   grid-area: 1 / 1;
   width: 100%;
-  font-family: var(--font-accent);
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;
   color: var(--color-periwinkle);
 }
 
@@ -94,7 +91,7 @@
   align-items: center;
   justify-content: center;
   padding: 0 1.2rem;
-  font-family: var(--font-accent);
+  font-family: var(--font-display);
   letter-spacing: 0.12em;
   font-size: 1rem;
   color: var(--color-cream);
@@ -105,9 +102,14 @@
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-.message-form__submit:hover {
+.message-form__submit:hover:not(:disabled) {
   background: rgba(255, 255, 255, 0.12);
   color: var(--color-lilac);
+}
+
+.message-form__submit:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 .message-list {

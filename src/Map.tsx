@@ -40,7 +40,7 @@ export default function Map() {
         </label>
         <div className="message-form__row">
           <div className="message-form__field">
-            <span className="message-form__sizer" data-value={alias || 'alias'}>
+            <span className="message-form__sizer" data-value={alias || 'an epiteth?'}>
               <input
                 id="alias"
                 className="message-form__part message-form__part--alias"
@@ -60,11 +60,11 @@ export default function Map() {
               type="text"
               value={draft}
               onChange={event => setDraft(event.target.value)}
-              placeholder=". . ."
+              placeholder="a message"
               autoComplete="off"
             />
           </div>
-          <button className="message-form__submit" type="submit">
+          <button className="message-form__submit" type="submit" disabled>
             shoot
           </button>
         </div>
