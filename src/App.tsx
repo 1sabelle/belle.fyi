@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Sparkle from './Sparkle'
 import Nav from './Nav'
 import Starfield from './Starfield'
+import Map from './Map'
 import './App.css'
 
 function Home() {
@@ -42,11 +43,6 @@ function Contact() {
         where none intrudes
       </h2>
       <p className="hero__cite">… Byron</p>
-      <p className="hero__moon-text" aria-hidden="true">
-        by the deep sea, and music in its roar:
-        <br />
-        i love not man the less, but nature more
-      </p>
     </section>
   )
 }
@@ -79,6 +75,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/work" element={<Work />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/map" element={<Map />} />
       </Routes>
       </main>
     </>
