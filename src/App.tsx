@@ -2,6 +2,8 @@ import { Routes, Route } from 'react-router-dom'
 import Sparkle from './Sparkle'
 import Nav from './Nav'
 import Starfield from './Starfield'
+import MessageStars from './MessageStars'
+import { MessagesProvider } from './MessagesContext'
 import Map from './Map'
 import './App.css'
 
@@ -49,8 +51,9 @@ function Contact() {
 
 function App() {
   return (
-    <>
+    <MessagesProvider>
       <Starfield />
+      <MessageStars />
       {/* <div className="belle-dock">
         <Belle />
       </div> */}
@@ -78,7 +81,7 @@ function App() {
         <Route path="/map" element={<Map />} />
       </Routes>
       </main>
-    </>
+    </MessagesProvider>
   )
 }
 

@@ -1,21 +1,17 @@
 import { useState, type FormEvent } from 'react'
+import { useMessages } from './MessagesContext'
 import './Map.css'
 
-type Message = {
-  alias: string
-  text: string
-}
-
 export default function Map() {
+  const { addMessage } = useMessages()
   const [alias, setAlias] = useState('')
   const [draft, setDraft] = useState('')
-  const [messages, setMessages] = useState<Message[]>([])
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault()
     const text = draft.trim()
     if (!text) return
-    setMessages(prev => [{ alias: alias.trim(), text }, ...prev]) // newest first
+    addMessage({ alias: alias.trim(), text }) 
     setAlias('')
     setDraft('')
   }
@@ -65,27 +61,14 @@ export default function Map() {
               onChange={event => setDraft(event.target.value)}
               placeholder="a message"
               autoComplete="off"
+              maxLength={280}
             />
           </div>
-          <button className="message-form__submit" type="submit" disabled>
+          <button className="message-form__submit" type="submit">
             shoot
           </button>
         </div>
       </form>
-
-      {messages.length > 0 && (
-        <ul className="message-list" aria-label="Registered messages">
-          {messages.map((message, i) => (
-            <li key={i} className="message-list__item">
-              <span className="message-list__star" aria-hidden="true">✦</span>
-              <span className="message-list__text">{message.text}</span>
-              {message.alias && (
-                <span className="message-list__alias">— {message.alias}</span>
-              )}
-            </li>
-          ))}
-        </ul>
-      )}
     </section>
   )
 }
