@@ -11,11 +11,21 @@ export default function MessageForm() {
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault()
+    if (submitting) return
+
+    const name = alias.trim()
     const text = draft.trim()
-    if (!text || submitting) return
+    if (!name) {
+      setError('an epiteth is required')
+      return
+    }
+    if (!text) {
+      setError('a message is required')
+      return
+    }
 
     setSubmitting(true)
-    const failure = await addMessage({ alias: alias.trim(), text })
+    const failure = await addMessage({ alias: name, text })
     setSubmitting(false)
 
     if (failure) {

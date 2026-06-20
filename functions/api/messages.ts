@@ -39,6 +39,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   if (!message) return new Response('Message is required', { status: 400 })
 
   const alias = String(body.alias ?? '').trim().slice(0, MAX_ALIAS)
+  if (!alias) return new Response('Alias is required', { status: 400 })
 
   const row: StoredMessage = {
     id: crypto.randomUUID(),
