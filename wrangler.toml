@@ -1,0 +1,8 @@
+name = "belle-fyi"
+compatibility_date = "2026-06-20"
+pages_build_output_dir = "dist"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "belle-fyi"
+database_id = "277a4908-88a0-4487-9d35-edfafa8cc0f3"

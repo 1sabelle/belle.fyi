@@ -6,14 +6,25 @@ export default function MessageForm() {
   const { addMessage } = useMessages()
   const [alias, setAlias] = useState('')
   const [draft, setDraft] = useState('')
+  const [error, setError] = useState<string | null>(null)
+  const [submitting, setSubmitting] = useState(false)
 
-  function handleSubmit(event: FormEvent) {
+  async function handleSubmit(event: FormEvent) {
     event.preventDefault()
     const text = draft.trim()
-    if (!text) return
-    addMessage({ alias: alias.trim(), text })
+    if (!text || submitting) return
+
+    setSubmitting(true)
+    const failure = await addMessage({ alias: alias.trim(), text })
+    setSubmitting(false)
+
+    if (failure) {
+      setError(failure)
+      return
+    }
     setAlias('')
     setDraft('')
+    setError(null)
   }
 
   return (
@@ -29,7 +40,10 @@ export default function MessageForm() {
               className="message-form__part message-form__part--alias"
               type="text"
               value={alias}
-              onChange={event => setAlias(event.target.value)}
+              onChange={(event) => {
+                setAlias(event.target.value)
+                setError(null)
+              }}
               placeholder="an epiteth"
               autoComplete="off"
               maxLength={20}
@@ -42,16 +56,25 @@ export default function MessageForm() {
             className="message-form__part message-form__part--message"
             type="text"
             value={draft}
-            onChange={event => setDraft(event.target.value)}
+            onChange={(event) => {
+              setDraft(event.target.value)
+              setError(null)
+            }}
             placeholder="a message"
             autoComplete="off"
             maxLength={280}
           />
         </div>
-        <button className="message-form__submit" type="submit">
+        <button className="message-form__submit" type="submit" disabled={submitting}>
           shoot
         </button>
       </div>
+      <p
+        className={`message-form__hint${error ? ' message-form__hint--error' : ''}`}
+        role={error ? 'alert' : undefined}
+      >
+        {error}
+      </p>
     </form>
   )
 }
