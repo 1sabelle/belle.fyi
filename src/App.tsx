@@ -47,6 +47,14 @@ function Contact() {
         <br />
         where none intrudes
       </h2>
+      <div className="hero__mail">
+        <span className="hero__mail-label">send me a letter</span>
+        <a className="hero__mail-link" href="mailto:is@belle.fyi">
+          <Sparkle size={16} className="hero__mail-sparkle" />
+          <span className="hero__mail-address">is@belle.fyi</span>
+          <Sparkle size={16} className="hero__mail-sparkle" />
+        </a>
+      </div>
       <div className="hero__moon-block" aria-hidden="true">
         <p className="hero__moon-text">
           by the deep sea,

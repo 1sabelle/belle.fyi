@@ -99,6 +99,66 @@
     animation: hero-rise 1s ease 0.15s forwards;
   }
 
+  .hero__mail {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    opacity: 0;
+    animation: hero-rise 1s ease 0.3s forwards;
+  }
+
+  .hero__mail-label {
+    font-family: var(--font-accent);
+    font-size: 1.25rem;
+    letter-spacing: 0.18em;
+    color: var(--color-periwinkle);
+  }
+
+  .hero__mail-link {
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    color: var(--color-cream);
+    text-decoration: none;
+    position: relative;
+    padding: 0.9rem 1.8rem;
+    margin-left: -1.8rem;
+  }
+
+  .hero__mail-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(closest-side, var(--color-lilac), transparent);
+    opacity: 0.16;
+    transition: opacity 0.3s ease;
+  }
+
+  .hero__mail-link:hover::before,
+  .hero__mail-link:focus-visible::before {
+    opacity: 0.28;
+  }
+
+  .hero__mail-sparkle {
+    color: var(--color-lilac);
+  }
+
+  .hero__mail-address {
+    background: linear-gradient(var(--color-lilac), var(--color-lilac)) left bottom / 0 1px no-repeat;
+    transition: background-size 0.3s ease, color 0.3s ease;
+  }
+
+  .hero__mail-link:hover .hero__mail-address,
+  .hero__mail-link:focus-visible .hero__mail-address {
+    color: var(--color-lilac);
+    background-size: 100% 1px;
+  }
 
   .hero__moon-block {
     position: absolute;
@@ -140,6 +200,7 @@
   @media (prefers-reduced-motion: reduce) {
     .hero__eyebrow,
     .hero__line,
+    .hero__mail,
     .hero__moon-block,
     .hero__moon {
       animation: none;
