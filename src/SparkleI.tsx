@@ -2,9 +2,9 @@
 // with a small sparkle for its dot. the stem takes the text colour
 export default function SparkleI({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="12 6.8 9 23.7" aria-hidden="true">
+    <svg className={className} viewBox="12 6 9 24.5" aria-hidden="true">
       <path
-        d="M16.3 6.9 L17.26 10.14 L20.5 11.1 L17.26 12.06 L16.3 15.3 L15.34 12.06 L12.1 11.1 L15.34 10.14 Z"
+        d="M16.3 6.1 L17.26 9.34 L20.5 10.3 L17.26 11.26 L16.3 14.5 L15.34 11.26 L12.1 10.3 L15.34 9.34 Z"
         className="sparkle-i__dot"
         fill="currentColor"
       />
