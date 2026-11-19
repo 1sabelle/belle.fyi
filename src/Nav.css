@@ -42,7 +42,7 @@
     transform: scale(0.2) rotate(-120deg);
   }
 
-  /* work: one rises out above, one sinks out below */
+  /* creations: one rises out above, one sinks out below */
   .nav__twinkle--above {
     top: -0.55rem;
     right: -0.35rem;
@@ -60,7 +60,7 @@
     transition-delay: 0.1s;
   }
 
-  /* contact: a little shooting star sliding down to the top-left */
+  /* find me: a little shooting star sliding down to the top-left */
   .nav__twinkle--falling {
     top: -0.2rem;
     left: -0.6rem;
@@ -96,5 +96,6 @@
     font-family: var(--font-accent);
     font-size: 1.2rem;
     color: var(--color-periwinkle);
+    white-space: nowrap;
   }
  

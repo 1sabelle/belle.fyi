@@ -30,8 +30,8 @@ function Moon({ phase }: { phase: Phase }) {
 // each moon has its own twinkles, styled in Nav.css by name
 const PAGES = [
   { to: '/', label: 'home', phase: 'waxing', twinkles: ['twirl'] },
-  { to: '/work', label: 'work', phase: 'full', twinkles: ['above', 'below'] },
-  { to: '/contact', label: 'contact', phase: 'waning', twinkles: ['falling', 'falling-small'] },
+  { to: '/creations', label: 'creations', phase: 'full', twinkles: ['above', 'below'] },
+  { to: '/find-me', label: 'find me', phase: 'waning', twinkles: ['falling', 'falling-small'] },
 ] as const
 
 function NavItem({ to, label, phase, twinkles }: (typeof PAGES)[number]) {

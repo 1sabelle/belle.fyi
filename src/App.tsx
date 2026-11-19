@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Sparkle from './Sparkle'
 import Nav from './Nav'
 import Starfield from './Starfield'
@@ -23,7 +23,7 @@ function Home() {
   )
 }
 
-function Work() {
+function Creations() {
   return (
     <section className="hero">
       <h2 className="hero__line">
@@ -36,7 +36,7 @@ function Work() {
   )
 }
 
-function Contact() {
+function FindMe() {
   return (
     <section className="hero">
       <h2 className="hero__line">
@@ -98,8 +98,10 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/work" element={<Work />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/creations" element={<Creations />} />
+        <Route path="/work" element={<Navigate to="/creations" replace />} />
+        <Route path="/find-me" element={<FindMe />} />
+        <Route path="/contact" element={<Navigate to="/find-me" replace />} />
       </Routes>
       </main>
     </MoonPreviewProvider>
