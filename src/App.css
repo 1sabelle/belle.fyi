@@ -51,6 +51,10 @@
     color: var(--color-periwinkle);
   }
 
+  .masthead__sparkle {
+    color: var(--color-cream);
+  }
+
   .hero {
     position: relative;
     min-height: 58vh;

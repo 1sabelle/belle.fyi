@@ -87,11 +87,11 @@ function App() {
       <header className="masthead">
         <div className="masthead__title">
           <h1>
-            <Sparkle size={20} />
+            <Sparkle size={20} className="masthead__sparkle" />
             {' '}
             isabelle
             {' '}
-            <Sparkle size={20} />
+            <Sparkle size={20} className="masthead__sparkle" />
           </h1>
           <p className="tagline">fyi very much</p>
         </div>
