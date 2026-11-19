@@ -1,4 +1,6 @@
 :root {
+    font-size: 90%;
+
     --color-navy:   #181F30;
     --color-periwinkle: #9fa6ce;
     --color-lilac:   rgb(208, 192, 230);
