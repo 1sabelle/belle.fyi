@@ -26,18 +26,18 @@ export function TideIcon() {
   )
 }
 
-// a star waking between code braces
+// a star waking between code brackets, each bracket a pair of leaves.
+// cropped closer than the others because the brackets are wider than they are tall
 export function CuivienenIcon() {
   return (
-    <svg className="project-icon" viewBox="0 0 24 24" aria-hidden="true">
-      <g fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M7 3.5 C5 3.5 5 4.5 5 6.5 V9.5 C5 11 4.2 12 3 12 C4.2 12 5 13 5 14.5 V17.5 C5 19.5 5 20.5 7 20.5" />
-        <path d="M17 3.5 C19 3.5 19 4.5 19 6.5 V9.5 C19 11 19.8 12 21 12 C19.8 12 19 13 19 14.5 V17.5 C19 19.5 19 20.5 17 20.5" />
+    <svg className="project-icon" viewBox="2.5 2.5 19 19" aria-hidden="true">
+      <g fill="currentColor">
+        <path d="M2.8 12 Q4 7.9 8.4 5.8 Q7.2 9.9 2.8 12 Z" />
+        <path d="M2.8 12 Q4 16.1 8.4 18.2 Q7.2 14.1 2.8 12 Z" />
+        <path d="M21.2 12 Q20 7.9 15.6 5.8 Q16.8 9.9 21.2 12 Z" />
+        <path d="M21.2 12 Q20 16.1 15.6 18.2 Q16.8 14.1 21.2 12 Z" />
       </g>
-      <path
-        d="M12 7.5 L13.2 10.8 L16.5 12 L13.2 13.2 L12 16.5 L10.8 13.2 L7.5 12 L10.8 10.8 Z"
-        fill="currentColor"
-      />
+      <path d="M12 8.5 L12.9 11.1 L15.5 12 L12.9 12.9 L12 15.5 L11.1 12.9 L8.5 12 L11.1 11.1 Z" fill="currentColor" />
     </svg>
   )
 }
