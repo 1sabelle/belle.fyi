@@ -1,19 +1,41 @@
+import type { ComponentType } from 'react'
 import { CuivienenIcon, KaleidoscopeIcon, TideIcon } from './ProjectIcons'
 import Sparkle from './Sparkle'
+import { useMoonPreview } from './MoonPreviewContext'
+import tidePreview from './assets/previews/tide.webp'
 import './ProjectList.css'
 
-const PROJECTS = [
+type Project = {
+  name: string
+  url: string
+  description: string
+  Icon: ComponentType
+  preview?: string
+}
+
+const PROJECTS: Project[] = [
   { name: 'kaleidoscope', url: 'https://kaleidoscope.belle.fyi', description: 'a palette creator', Icon: KaleidoscopeIcon },
-  { name: 'tide', url: 'https://tide.belle.fyi', description: 'a cycle tracker', Icon: TideIcon },
+  { name: 'tide', url: 'https://tide.belle.fyi', description: 'a cycle tracker', Icon: TideIcon, preview: tidePreview },
   { name: 'cuiviénen', url: 'https://github.com/1sabelle/cuivienen', description: 'a calm navy theme', Icon: CuivienenIcon },
 ]
 
 export default function ProjectList() {
+  const { showPreview, hidePreview } = useMoonPreview()
+
   return (
     <ul className="project-list">
-      {PROJECTS.map(({ name, url, description, Icon }) => (
+      {PROJECTS.map(({ name, url, description, Icon, preview }) => (
         <li key={url}>
-          <a className="project-list__link" href={url} target="_blank" rel="noopener noreferrer">
+          <a
+            className="project-list__link"
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            onMouseEnter={preview ? () => showPreview(preview) : undefined}
+            onFocus={preview ? () => showPreview(preview) : undefined}
+            onMouseLeave={hidePreview}
+            onBlur={hidePreview}
+          >
             <span className="project-list__star">
               <Icon />
               <Sparkle size={14} className="project-list__twinkle" />

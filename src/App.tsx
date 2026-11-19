@@ -6,6 +6,8 @@ import MessageStars from './MessageStars'
 import { MessagesProvider } from './MessagesContext'
 import MessageForm from './MessageForm'
 import ProjectList from './ProjectList'
+import MoonPreview from './MoonPreview'
+import { MoonPreviewProvider } from './MoonPreviewContext'
 import './App.css'
 
 function Home() {
@@ -64,13 +66,16 @@ function Contact() {
 function App() {
   return (
     <MessagesProvider>
+    <MoonPreviewProvider>
       <Starfield />
       <MessageStars />
       {/* <div className="belle-dock">
         <Belle />
       </div> */}
       <main className="container">
-      <div className="hero__moon" aria-hidden="true" />
+      <div className="hero__moon" aria-hidden="true">
+        <MoonPreview />
+      </div>
       <header className="masthead">
         <div className="masthead__title">
           <h1>
@@ -92,6 +97,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       </main>
+    </MoonPreviewProvider>
     </MessagesProvider>
   )
 }

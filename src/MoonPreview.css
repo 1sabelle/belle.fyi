@@ -1,0 +1,33 @@
+/* the moon's round edge crops the preview into a circle */
+.hero__moon {
+  overflow: hidden;
+}
+
+.moon-preview {
+  position: absolute;
+  inset: 0;
+  background: rgb(19, 26, 40); /* the screenshots' own page background, so the page blends into the disc */
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.moon-preview--showing {
+  opacity: 1;
+}
+
+/*
+  only the moon's upper left is on screen, so the page is nudged right and down
+  to bring its title and top-left corner into view
+*/
+.moon-preview__page {
+  position: absolute;
+  left: 21%;
+  top: 16%;
+  width: 105%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .moon-preview {
+    transition: none;
+  }
+}
