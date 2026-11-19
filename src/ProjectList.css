@@ -6,50 +6,84 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  max-width: 32rem;
+  gap: 3rem;
+  max-width: 36rem;
   opacity: 0;
   animation: hero-rise 1s ease 0.3s forwards;
 }
 
+.project-list li {
+  position: relative;
+}
+
+/* the dotted thread joining each star to the next, like a constellation */
+.project-list li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 1.375rem;
+  top: 3.15rem;
+  bottom: -2.6rem;
+  border-left: 1px dotted var(--color-periwinkle);
+  opacity: 0.5;
+}
+
 .project-list__link {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.8rem 1rem;
-  background: rgba(255, 255, 255, 0.06);
+  display: grid;
+  grid-template-columns: 2.75rem 1fr;
+  column-gap: 1.25rem;
   text-decoration: none;
-  transition: background 0.2s ease;
+}
+
+.project-list__star {
+  position: relative;
+  grid-row: 1;
+  display: grid;
+  place-items: center;
+  height: 2.75rem;
 }
 
 .project-icon {
-  flex: 0 0 auto;
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
   color: var(--color-lilac);
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: color 0.3s ease, filter 0.3s ease;
 }
 
-.project-list__link:hover,
-.project-list__link:focus-visible {
-  background: rgba(255, 255, 255, 0.12);
+.project-list__twinkle {
+  position: absolute;
+  top: -0.3rem;
+  right: -0.5rem;
+  color: var(--color-cream);
+  opacity: 0;
+  transform: scale(0.4) rotate(-45deg);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .project-list__link:hover .project-icon,
 .project-list__link:focus-visible .project-icon {
   color: var(--color-cream);
-  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(234, 224, 207, 0.7));
+}
+
+.project-list__link:hover .project-list__twinkle,
+.project-list__link:focus-visible .project-list__twinkle {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
 }
 
 .project-list__name {
-  flex: 1 1 auto;
+  grid-column: 2;
+  align-self: center;
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.6rem;
+  line-height: 2.75rem;
   color: var(--color-cream);
 }
 
 .project-list__description {
+  grid-column: 2;
   font-family: var(--font-accent);
+  font-size: 1.1rem;
   letter-spacing: 0.08em;
   color: var(--color-periwinkle);
 }
@@ -58,5 +92,10 @@
   .project-list {
     animation: none;
     opacity: 1;
+  }
+
+  .project-icon,
+  .project-list__twinkle {
+    transition: none;
   }
 }

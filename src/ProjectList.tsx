@@ -1,4 +1,5 @@
 import { CuivienenIcon, KaleidoscopeIcon, TideIcon } from './ProjectIcons'
+import Sparkle from './Sparkle'
 import './ProjectList.css'
 
 const PROJECTS = [
@@ -13,7 +14,10 @@ export default function ProjectList() {
       {PROJECTS.map(({ name, url, description, Icon }) => (
         <li key={url}>
           <a className="project-list__link" href={url} target="_blank" rel="noopener noreferrer">
-            <Icon />
+            <span className="project-list__star">
+              <Icon />
+              <Sparkle size={14} className="project-list__twinkle" />
+            </span>
             <span className="project-list__name">{name}</span>
             <span className="project-list__description">{description}</span>
           </a>
