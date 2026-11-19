@@ -51,6 +51,7 @@
     width: 0.343em;
     margin-right: 0.02em;
     vertical-align: -0.027em;
+    color: var(--color-lilac);
   }
 
   .masthead__i .sparkle-i__dot {
