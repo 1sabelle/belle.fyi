@@ -5,6 +5,7 @@ import Starfield from './Starfield'
 import MessageStars from './MessageStars'
 import { MessagesProvider } from './MessagesContext'
 import MessageForm from './MessageForm'
+import ProjectList from './ProjectList'
 import './App.css'
 
 function Home() {
@@ -30,6 +31,7 @@ function Work() {
         <br />
         on the lonely shore
       </h2>
+      <ProjectList />
     </section>
   )
 }
