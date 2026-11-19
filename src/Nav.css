@@ -15,6 +15,77 @@
     transition: color 0.2s ease;
   }
 
+  .nav__moon {
+    position: relative;
+    display: grid;
+  }
+
+  .nav__twinkle {
+    position: absolute;
+    color: var(--color-cream);
+    opacity: 0;
+    transition:
+      opacity 0.3s ease,
+      transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .nav__link:hover .nav__twinkle,
+  .nav__link:focus-visible .nav__twinkle {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* home: a bouncy twirl in at the top-right */
+  .nav__twinkle--twirl {
+    top: -0.3rem;
+    right: -0.5rem;
+    transform: scale(0.2) rotate(-120deg);
+  }
+
+  /* work: one rises out above, one sinks out below */
+  .nav__twinkle--above {
+    top: -0.55rem;
+    right: -0.35rem;
+    transform: translate(-0.5rem, 0.5rem) scale(0.3) rotate(-90deg);
+  }
+
+  .nav__twinkle--below {
+    bottom: -0.45rem;
+    left: -0.45rem;
+    transform: translate(0.5rem, -0.5rem) scale(0.3) rotate(90deg);
+  }
+
+  .nav__link:hover .nav__twinkle--below,
+  .nav__link:focus-visible .nav__twinkle--below {
+    transition-delay: 0.1s;
+  }
+
+  /* contact: a little shooting star sliding down to the top-left */
+  .nav__twinkle--falling {
+    top: -0.2rem;
+    left: -0.6rem;
+    transform: translate(0.9rem, -0.9rem) scale(0.5) rotate(45deg);
+  }
+
+  .nav__twinkle--falling-small {
+    width: 8px;
+    height: 8px;
+    top: 0.75rem;
+    left: -0.475rem;
+    transform: translate(0.9rem, -0.9rem) scale(0.5) rotate(45deg);
+  }
+
+  .nav__link:hover .nav__twinkle--falling-small,
+  .nav__link:focus-visible .nav__twinkle--falling-small {
+    transition-delay: 0.1s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav__twinkle {
+      transition: none;
+    }
+  }
+
   .moon {
     width: 32px;
     height: 32px;

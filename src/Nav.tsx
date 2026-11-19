@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import Sparkle from './Sparkle'
 import './Nav.css'
 
 type Phase = 'new' | 'waxing' | 'full' | 'waning'
@@ -26,16 +27,22 @@ function Moon({ phase }: { phase: Phase }) {
   )
 }
 
+// each moon has its own twinkles, styled in Nav.css by name
 const PAGES = [
-  { to: '/', label: 'home', phase: 'waxing' },
-  { to: '/work', label: 'work', phase: 'full' },
-  { to: '/contact', label: 'contact', phase: 'waning' },
+  { to: '/', label: 'home', phase: 'waxing', twinkles: ['twirl'] },
+  { to: '/work', label: 'work', phase: 'full', twinkles: ['above', 'below'] },
+  { to: '/contact', label: 'contact', phase: 'waning', twinkles: ['falling', 'falling-small'] },
 ] as const
 
-function NavItem({ to, label, phase }: (typeof PAGES)[number]) {
+function NavItem({ to, label, phase, twinkles }: (typeof PAGES)[number]) {
   return (
     <NavLink to={to} className="nav__link" end={to === '/'}>
-      <Moon phase={phase} />
+      <span className="nav__moon">
+        <Moon phase={phase} />
+        {twinkles.map(twinkle => (
+          <Sparkle key={twinkle} size={12} className={`nav__twinkle nav__twinkle--${twinkle}`} />
+        ))}
+      </span>
       <span className="nav__label">{label}</span>
     </NavLink>
   )
