@@ -16,7 +16,7 @@ export default function MessageForm() {
     const name = alias.trim()
     const text = draft.trim()
     if (!name) {
-      setError('an epiteth is required')
+      setError('a name is required')
       return
     }
     if (!text) {
@@ -44,7 +44,7 @@ export default function MessageForm() {
       </label>
       <div className="message-form__row">
         <div className="message-form__field">
-          <span className="message-form__sizer" data-value={alias || 'an epiteth?'}>
+          <span className="message-form__sizer" data-value={alias || 'name?'}>
             <input
               id="alias"
               className="message-form__part message-form__part--alias"
@@ -54,7 +54,7 @@ export default function MessageForm() {
                 setAlias(event.target.value)
                 setError(null)
               }}
-              placeholder="an epiteth"
+              placeholder="name"
               autoComplete="off"
               maxLength={20}
               size={1}
@@ -70,7 +70,7 @@ export default function MessageForm() {
               setDraft(event.target.value)
               setError(null)
             }}
-            placeholder="a message"
+            placeholder="leave a message"
             autoComplete="off"
             maxLength={280}
           />
