@@ -14,13 +14,20 @@
 
 .project-list__link {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
+  align-items: center;
   gap: 1rem;
-  padding: 0.7rem 1rem;
+  padding: 0.8rem 1rem;
   background: rgba(255, 255, 255, 0.06);
   text-decoration: none;
   transition: background 0.2s ease;
+}
+
+.project-icon {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  color: var(--color-lilac);
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .project-list__link:hover,
@@ -28,7 +35,14 @@
   background: rgba(255, 255, 255, 0.12);
 }
 
+.project-list__link:hover .project-icon,
+.project-list__link:focus-visible .project-icon {
+  color: var(--color-cream);
+  transform: scale(1.1);
+}
+
 .project-list__name {
+  flex: 1 1 auto;
   font-family: var(--font-display);
   font-size: 1.1rem;
   color: var(--color-cream);
