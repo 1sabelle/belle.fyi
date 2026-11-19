@@ -13,7 +13,6 @@ import './App.css'
 function Home() {
   return (
     <section className="hero">
-      <p className="hero__eyebrow">welcome home little one</p>
       <h2 className="hero__line">
         ‟there is a pleasure
         <br />
@@ -27,7 +26,6 @@ function Home() {
 function Work() {
   return (
     <section className="hero">
-      <p className="hero__eyebrow">we have so much to do</p>
       <h2 className="hero__line">
         ‟there is a rapture
         <br />
@@ -41,7 +39,6 @@ function Work() {
 function Contact() {
   return (
     <section className="hero">
-      <p className="hero__eyebrow">but i am here now</p>
       <h2 className="hero__line">
         ‟there is society,
         <br />

@@ -79,17 +79,6 @@
     animation: hero-moon-rise 2s ease forwards;
   }
 
-  .hero__eyebrow {
-    position: relative;
-    z-index: 1;
-    margin: 0;
-    font-family: var(--font-accent);
-    letter-spacing: 0.18em;
-    color: var(--color-periwinkle);
-    opacity: 0;
-    animation: hero-rise 1s ease forwards;
-  }
-
   .hero__line {
     position: relative;
     z-index: 1;
@@ -206,7 +195,6 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero__eyebrow,
     .hero__line,
     .hero__mail,
     .hero__moon-block,
