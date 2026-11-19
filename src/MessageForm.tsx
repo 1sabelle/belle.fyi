@@ -1,6 +1,21 @@
-import { useState, type FormEvent } from 'react'
-import { useMessages } from './MessagesContext'
+import { useRef, useState, type FormEvent } from 'react'
+import { useMessages, type StarMessage } from './MessagesContext'
+import ShootingStar, { type Flight } from './ShootingStar'
 import './MessageForm.css'
+
+// the shooting star leaves from the shoot button and lands where the new star sits in the sky
+function planFlight(shootButton: HTMLButtonElement | null, message: StarMessage): Flight | null {
+  if (!shootButton) return null
+  const launch = shootButton.getBoundingClientRect()
+  const sky = document.documentElement
+  return {
+    starId: message.id,
+    fromX: launch.left + launch.width / 2,
+    fromY: launch.top + launch.height / 2,
+    toX: (parseFloat(message.left) / 100) * sky.clientWidth,
+    toY: (parseFloat(message.top) / 100) * sky.clientHeight,
+  }
+}
 
 export default function MessageForm() {
   const { addMessage } = useMessages()
@@ -8,6 +23,8 @@ export default function MessageForm() {
   const [draft, setDraft] = useState('')
   const [error, setError] = useState<string | null>(null)
   const [submitting, setSubmitting] = useState(false)
+  const [flight, setFlight] = useState<Flight | null>(null)
+  const shootButton = useRef<HTMLButtonElement>(null)
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault()
@@ -25,13 +42,14 @@ export default function MessageForm() {
     }
 
     setSubmitting(true)
-    const failure = await addMessage({ alias: name, text })
+    const result = await addMessage({ alias: name, text })
     setSubmitting(false)
 
-    if (failure) {
-      setError(failure)
+    if ('failure' in result) {
+      setError(result.failure)
       return
     }
+    setFlight(planFlight(shootButton.current, result.message))
     setAlias('')
     setDraft('')
     setError(null)
@@ -75,7 +93,7 @@ export default function MessageForm() {
             maxLength={280}
           />
         </div>
-        <button className="message-form__submit" type="submit" disabled={submitting}>
+        <button ref={shootButton} className="message-form__submit" type="submit" disabled={submitting}>
           shoot
         </button>
       </div>
@@ -85,6 +103,7 @@ export default function MessageForm() {
       >
         {error}
       </p>
+      {flight && <ShootingStar key={flight.starId} flight={flight} onLanded={() => setFlight(null)} />}
     </form>
   )
 }

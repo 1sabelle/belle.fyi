@@ -7,6 +7,9 @@
     --color-cream:  #eae0cf;
     --color-rose:   #e07a7a;
 
+    /* how long a sent message flies before it lands as a star */
+    --shooting-star-flight: 1.2s;
+
     --font-display: 'Lora Variable', Georgia, serif;
     --font-accent: 'Figtree Variable', system-ui, sans-serif;
     --font-body: 'Figtree Variable', system-ui, sans-serif;

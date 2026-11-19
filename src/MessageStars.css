@@ -115,6 +115,36 @@
   white-space: nowrap;
 }
 
+/* a star that was just sent stays dark until the shooting star reaches it,
+   then flares up and sends out a few rings so it is easy to find */
+.message-star--just-sent .message-star__dot {
+  animation:
+    twinkle var(--twinkle-duration) ease-in-out var(--twinkle-delay) infinite,
+    star-landing 0.9s ease-out var(--shooting-star-flight) backwards;
+}
+
+.message-star--just-sent::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--color-lilac);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  animation: star-beacon 1.6s ease-out var(--shooting-star-flight) 3;
+}
+
+@keyframes star-landing {
+  0%   { opacity: 0; transform: scale(0); }
+  35%  { opacity: 1; transform: scale(3); background: var(--color-cream); }
+  100% { transform: scale(1); }
+}
+
+@keyframes star-beacon {
+  from { opacity: 0.9; transform: scale(0.3); }
+  to   { opacity: 0; transform: scale(2.4); }
+}
+
 @keyframes bubble-in {
   from { opacity: 0; }
   to   { opacity: 1; }
@@ -125,6 +155,12 @@
     animation: none;
   }
   .message-star__bubble {
+    animation: none;
+  }
+  .message-star--just-sent .message-star__dot {
+    animation: none;
+  }
+  .message-star--just-sent::after {
     animation: none;
   }
 }

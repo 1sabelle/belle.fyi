@@ -46,7 +46,7 @@ export default function MessageStars() {
           <button
             key={message.id}
             type="button"
-            className={`message-star${active ? ' message-star--active' : ''}`}
+            className={`message-star${active ? ' message-star--active' : ''}${message.justSent ? ' message-star--just-sent' : ''}`}
             style={{
               top: message.top,
               left: message.left,

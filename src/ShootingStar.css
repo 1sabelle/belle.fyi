@@ -1,0 +1,40 @@
+/* the head sits on the element's right end, the tail trails off to the left,
+   and the whole thing is turned to face where it is flying */
+.shooting-star {
+  position: fixed;
+  z-index: 4;
+  width: 72px;
+  height: 2px;
+  margin: -1px 0 0 -72px;
+  transform-origin: right center;
+  rotate: var(--heading);
+  background: linear-gradient(to right, transparent, var(--color-lilac));
+  border-radius: 1px;
+  pointer-events: none;
+  animation: shooting-star-flight var(--shooting-star-flight) cubic-bezier(0.45, 0, 0.25, 1) forwards;
+}
+
+.shooting-star::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: -2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-cream);
+  box-shadow: 0 0 10px 3px rgba(234, 224, 207, 0.85);
+}
+
+@keyframes shooting-star-flight {
+  0%   { translate: 0 0; opacity: 0; scale: 0.4 1; }
+  15%  { opacity: 1; scale: 1; }
+  85%  { opacity: 1; scale: 1; }
+  100% { translate: var(--dx) var(--dy); opacity: 0; scale: 0.3 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shooting-star {
+    display: none;
+  }
+}

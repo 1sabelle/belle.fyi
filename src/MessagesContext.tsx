@@ -11,6 +11,8 @@ export type StarMessage = {
   delay: string
   duration: string
   opacity: number
+  // posted by this visitor just now, so it lands with a shooting star
+  justSent: boolean
 }
 
 type StoredMessage = {
@@ -20,9 +22,11 @@ type StoredMessage = {
   created_at: string
 }
 
+export type SendResult = { message: StarMessage } | { failure: string }
+
 type MessagesValue = {
   messages: StarMessage[]
-  addMessage: (input: { alias: string, text: string }) => Promise<string | null>
+  addMessage: (input: { alias: string, text: string }) => Promise<SendResult>
 }
 
 const MessagesContext = createContext<MessagesValue | null>(null)
@@ -58,6 +62,7 @@ function decorate(stored: StoredMessage): StarMessage {
     delay: `${rand() * 6}s`,
     duration: `${rand() * 4 + 4}s`,
     opacity: rand() * 0.3 + 0.6,
+    justSent: false,
   }
 }
 
@@ -77,7 +82,7 @@ export function MessagesProvider({ children }: { children: ReactNode }) {
     }
   }, [])
 
-  async function addMessage(input: { alias: string, text: string }): Promise<string | null> {
+  async function addMessage(input: { alias: string, text: string }): Promise<SendResult> {
     try {
       const res = await fetch('/api/messages', {
         method: 'POST',
@@ -85,14 +90,15 @@ export function MessagesProvider({ children }: { children: ReactNode }) {
         body: JSON.stringify({ alias: input.alias, message: input.text }),
       })
       if (!res.ok) {
-        return (await res.text()) || 'Something went wrong. Try again?'
+        return { failure: (await res.text()) || 'Something went wrong. Try again?' }
       }
       const stored: StoredMessage = await res.json()
-      setMessages(prev => [decorate(stored), ...prev])
-      return null
+      const message = { ...decorate(stored), justSent: true }
+      setMessages(prev => [message, ...prev])
+      return { message }
     }
     catch {
-      return 'Could not reach the sky. Check your connection?'
+      return { failure: 'Could not reach the sky. Check your connection?' }
     }
   }
 
