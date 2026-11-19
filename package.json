@@ -11,9 +11,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@fontsource/gilda-display": "^5.2.8",
-    "@fontsource/harmattan": "^5.2.7",
-    "@fontsource/instrument-sans": "^5.2.8",
+    "@fontsource-variable/figtree": "^5.3.0",
+    "@fontsource-variable/lora": "^5.3.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-router-dom": "^7.16.0"

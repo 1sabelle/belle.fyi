@@ -5,9 +5,9 @@
     --color-cream:  #eae0cf;
     --color-rose:   #e07a7a;
 
-    --font-display: 'Gilda Display', Georgia, serif;
-    --font-accent: 'Harmattan', system-ui, sans-serif;
-    --font-body: 'Instrument Sans', system-ui, sans-serif;
+    --font-display: 'Lora Variable', Georgia, serif;
+    --font-accent: 'Figtree Variable', system-ui, sans-serif;
+    --font-body: 'Figtree Variable', system-ui, sans-serif;
   }
 
   #root {
