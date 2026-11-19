@@ -129,28 +129,27 @@
     font-size: 1.75rem;
     color: var(--color-cream);
     text-decoration: none;
-    position: relative;
-    padding: 0.9rem 1.8rem;
-    margin-left: -1.8rem;
-  }
-
-  .hero__mail-link::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: radial-gradient(closest-side, var(--color-lilac), transparent);
-    opacity: 0.16;
-    transition: opacity 0.3s ease;
-  }
-
-  .hero__mail-link:hover::before,
-  .hero__mail-link:focus-visible::before {
-    opacity: 0.28;
   }
 
   .hero__mail-sparkle {
     color: var(--color-lilac);
+    animation: hero-sparkle-twinkle 2.8s ease-in-out infinite;
+    transition: rotate 0.5s ease, translate 0.5s ease;
+  }
+
+  .hero__mail-sparkle:last-child {
+    animation-delay: -1.4s;
+  }
+
+  .hero__mail-link:hover .hero__mail-sparkle,
+  .hero__mail-link:focus-visible .hero__mail-sparkle {
+    rotate: 90deg;
+    translate: -0.3rem 0;
+  }
+
+  .hero__mail-link:hover .hero__mail-sparkle:last-child,
+  .hero__mail-link:focus-visible .hero__mail-sparkle:last-child {
+    translate: 0.3rem 0;
   }
 
   .hero__mail-address {
@@ -196,6 +195,11 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
+  @keyframes hero-sparkle-twinkle {
+    0%, 100% { scale: 0.7; opacity: 0.55; }
+    50%      { scale: 1;   opacity: 1; }
+  }
+
   @keyframes hero-moon-rise {
     from { opacity: 0; }
     to   { opacity: 1; }
@@ -213,5 +217,9 @@
 
     .hero__moon {
       opacity: 1;
+    }
+
+    .hero__mail-sparkle {
+      animation: none;
     }
   }
