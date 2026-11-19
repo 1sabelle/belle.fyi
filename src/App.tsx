@@ -6,6 +6,7 @@ import MessageStars from './MessageStars'
 import { MessagesProvider } from './MessagesContext'
 import MessageForm from './MessageForm'
 import ProjectList from './ProjectList'
+import { GitHubIcon, LinkedInIcon } from './SocialIcons'
 import MoonPreview from './MoonPreview'
 import { MoonPreviewProvider } from './MoonPreviewContext'
 import './App.css'
@@ -36,6 +37,13 @@ function Creations() {
   )
 }
 
+const PAST_EXPERIENCE = [
+  'Software Engineer at Hedin IT, 2023–2026',
+  'Integration Developer Consultant at Exsitec, 2021–2023',
+  'BSc in Informatics, University of Gothenburg, 2018–2021',
+  'Analyst at HCL Technologies (part time), 2019',
+]
+
 function FindMe() {
   return (
     <section className="hero">
@@ -44,6 +52,19 @@ function FindMe() {
         <br />
         where none intrudes
       </h2>
+      <div className="hero__about">
+        <span className="hero__about-label">who i am</span>
+        <p className="hero__about-name">Isabelle Schafhauser</p>
+        <p className="hero__about-role">Software Developer at Inet</p>
+        <ul className="hero__about-past">
+          {PAST_EXPERIENCE.map(experience => (
+            <li key={experience} className="hero__about-experience">
+              <Sparkle size={10} className="hero__about-star" />
+              {experience}
+            </li>
+          ))}
+        </ul>
+      </div>
       <div className="hero__mail">
         <span className="hero__mail-label">send me a letter</span>
         <a className="hero__mail-link" href="mailto:is@belle.fyi">
@@ -51,6 +72,16 @@ function FindMe() {
           <span className="hero__mail-address">is@belle.fyi</span>
           <Sparkle size={16} className="hero__mail-sparkle" />
         </a>
+        <div className="hero__socials">
+          <a className="hero__social-link" href="https://github.com/1sabelle" target="_blank" rel="noreferrer">
+            <GitHubIcon />
+            <span>github</span>
+          </a>
+          <a className="hero__social-link" href="https://www.linkedin.com/in/isabelleschafhauser/" target="_blank" rel="noreferrer">
+            <LinkedInIcon />
+            <span>linkedin</span>
+          </a>
+        </div>
       </div>
       <div className="hero__moon-block" aria-hidden="true">
         <p className="hero__moon-text">
