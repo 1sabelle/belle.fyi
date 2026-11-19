@@ -12,14 +12,6 @@
     margin-bottom: 0.25rem;
   }
 
-  .tagline {
-    color: var(--color-lilac);
-    font-family: var(--font-display);
-    padding-left: 1.7rem;
-    margin-top: 0;
-    font-size: 1.3rem;
-  }
-
   .body-text {
     color: var(--color-cream);
     font-family: var(--font-body);
@@ -48,11 +40,21 @@
 
   .masthead__title h1 {
     margin: 0;
+    font-size: 3rem;
     color: var(--color-periwinkle);
   }
 
-  .masthead__sparkle {
-    color: var(--color-cream);
+  /* the first letter of the name: the stem matches the other lowercase letters,
+     dipping just below the baseline like the round letters do */
+  .masthead__i {
+    height: 0.903em;
+    width: 0.343em;
+    margin-right: 0.02em;
+    vertical-align: -0.027em;
+  }
+
+  .masthead__i .sparkle-i__dot {
+    fill: var(--color-cream);
   }
 
   .hero {

@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Sparkle from './Sparkle'
+import SparkleI from './SparkleI'
 import Nav from './Nav'
 import Starfield from './Starfield'
 import MessageStars from './MessageStars'
@@ -114,14 +115,10 @@ function App() {
       </div>
       <header className="masthead">
         <div className="masthead__title">
-          <h1>
-            <Sparkle size={20} className="masthead__sparkle" />
-            {' '}
-            isabelle
-            {' '}
-            <Sparkle size={20} className="masthead__sparkle" />
+          <h1 aria-label="isabelle">
+            <SparkleI className="masthead__i" />
+            sabelle
           </h1>
-          <p className="tagline">fyi very much</p>
         </div>
 
         <Nav />
