@@ -13,7 +13,7 @@
   }
 
   .tagline {
-    color: var(--color-lilac);
+    color: var(--color-periwinkle);
     font-family: var(--font-display);
     padding-left: 1.7rem;
     margin-top: 0;
@@ -48,6 +48,7 @@
 
   .masthead__title h1 {
     margin: 0;
+    color: var(--color-periwinkle);
   }
 
   .hero {
