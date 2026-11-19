@@ -11,7 +11,7 @@ export default function ProjectList() {
     <ul className="project-list">
       {PROJECTS.map(project => (
         <li key={project.url}>
-          <a className="project-list__link" href={project.url}>
+          <a className="project-list__link" href={project.url} target="_blank" rel="noopener noreferrer">
             <span className="project-list__name">{project.name}</span>
             <span className="project-list__description">{project.description}</span>
           </a>
