@@ -281,3 +281,15 @@
   }
   .belle__heart { opacity: 1; }
 }
+
+/* phones: Belle waits small in the corner so she doesn't sit on the content */
+@media (max-width: 640px) {
+  .belle-dock {
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  .belle {
+    zoom: 0.7;
+  }
+}
