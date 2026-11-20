@@ -2,7 +2,7 @@
 
 > Status: **Draft** · Owner: Isabelle · Last updated: 2026-06-09
 
-A small tamagotchi / dating-sim style star-sprite named **Belle** that lives on the portfolio.
+A small tamagotchi / dating-sim style firefly named **Belle** that lives on the portfolio.
 Visitors build a **trust level** with her by feeding her words. Correct words unlock short,
 branching conversations — a playful, indirect way for someone to get to know Isabelle.
 
@@ -37,11 +37,11 @@ serif display type (Gilda Display), and lines from Byron's *Childe Harold's Pilg
 
 The creature should feel like it belongs in that sky. **Decided concept:**
 
-- **A small star-sprite / will-o'-wisp named _Belle_** — a soft, irregular wisp: a morphing
-  blurred core, a halo of uneven filaments radiating outward, and a few satellite glints, with
-  faint eyes for expression. No hard edges — she reads as "a tiny constellation that took an
-  interest in you." Cheap to animate (morphing core + rotating filaments + bob/blink), and she
-  harmonizes with the existing `Sparkle` and `Starfield` components.
+- **A small firefly named _Belle_**, drawn flat and crisp in the site's palette: a warm cream
+  body, two stepped translucent glow rings, and a pair of lilac wings that flap quickly. A few
+  twinkling motes drift around her, and cream hearts
+  float up when she is happy. She bobs and sways gently; only the wings move fast. Cheap to
+  animate (pure CSS), and she reads as a small light that took an interest in you.
 - The name **Belle** echoes _Isabelle_ — so the very first word the visitor can offer is the
   creature's name, which doubles as a small wink toward whose site this is.
 
@@ -93,21 +93,21 @@ Trust is an integer that maps to **tiers**. Each tier:
 
 | Tier | Name (draft) | Trust needed | Creature look | Theme of unlocked content |
 |------|--------------|--------------|---------------|----------------------------|
-| 0 | Wary | 0 | few short dim rays, faint haze, no glints, cool/desaturated, slow drift | first contact — offer it a name ("belle") |
-| 1 | Curious | 1 | brighter core, more rays (5–6), 1 glint | what Isabelle does / builds |
-| 2 | Warming | 3 | full-bright core, 8 longer rays, full haze, 2 glints, gentle sweep | interests, taste, what she's into |
-| 3 | Fond | 6 | radiant, long rays, wide haze, 3 glints orbiting, warmer, wider drift | stories, opinions, the personal stuff |
-| 4 | Devoted | 10 | peak-white core, max longest rays, broadest haze, 4–5 orbiting glints, lively, full cream glow | easter eggs, silly questions, secrets |
+| 0 | Wary | 0 | dim body, single faint ring, no motes, slow drift | first contact — offer it a name ("belle") |
+| 1 | Curious | 1 | brighter body, both rings, 1 mote | what Isabelle does / builds |
+| 2 | Warming | 3 | full-bright body, 2 motes | interests, taste, what she's into |
+| 3 | Fond | 6 | 4 motes, wider drift | stories, opinions, the personal stuff |
+| 4 | Devoted | 10 | more motes, brighter rings, lively, occasional idle hearts | easter eggs, silly questions, secrets |
 
 Numbers are placeholders — tune once content exists. **Decided: trust never decays** — it only
 goes up. Belle never "forgets" or "misses you"; returning visitors always pick up where they left off.
 
 > **Visual progression — status (not yet built).** The sprite is made of separately-tunable
-> parts (`RAYS` array, glint spans, haze, core, drift/sweep), so tier visuals are subtractive:
+> parts (`MOTES` array, rings, body), so tier visuals are subtractive:
 > dim/strip Belle down for tier 0, and let her build up to the rich look. **What renders today
-> is the _full_ look (all 8 rays, 3 glints, full brightness) ≈ tier 3–4 — there is no `tier`
+> is the tier 3 look (4 motes, full brightness) — there is no `tier`
 > prop yet, so she does not currently start "Wary."** Plan: add a `tier` prop that slices
-> `RAYS`/glints by count and sets `--belle-glow` / `--belle-warmth` via a `.belle--tier-N`
+> `MOTES` by count and sets `--belle-glow` / `--belle-warmth` via a `.belle--tier-N`
 > class. **TODO — wire alongside the trust hook (`useBelle`), but in a separate later commit.**
 
 ---
@@ -161,12 +161,12 @@ yet triggered by any logic.
 
 | State | Trigger | Animation sketch | Built? |
 |-------|---------|------------------|--------|
-| `idle` | default | wandering drift; morphing haze + core; slow ray sweep; per-ray flicker; twinkling glints | ✅ |
-| `listening` | input focused | haze brightens | ✅ |
-| `happy` | correct word | quick bounce + haze flare | ✅ |
-| `confused` | wrong word | wobble, dim core briefly | ✅ |
+| `idle` | default | gentle bob + sway; fast wing flap; twinkling motes | ✅ |
+| `listening` | input focused | glow rings brighten | ✅ |
+| `happy` | correct word | quick bounce + hearts float up and fade | ✅ |
+| `confused` | wrong word | wobble, dim body briefly | ✅ |
 | `talking` | answering a question | gentle bob synced to text reveal | ☐ |
-| `sleeping` | idle for a long time / tab hidden | dim haze/rays/core, slow breathing | ☐ |
+| `sleeping` | idle for a long time / tab hidden | dimmed, wings still, slow bob | ✅ (styled, not triggered) |
 | `levelup` | trust tier increases | flash + new glints settle into orbit | ☐ |
 
 Respect `prefers-reduced-motion`: fall back to opacity/static states only.
@@ -240,7 +240,7 @@ interface Conversation {
 
 **Decided**
 
-- Creature form: **star-sprite / will-o'-wisp**, named **Belle**.
+- Creature form: **flat, crisp firefly**, named **Belle**.
 - Placement: **floating corner companion**, persistent across routes, dismissible.
 - Persistence: **`localStorage` (client-only)** in v1; optional .NET backend in v2.
 - Trust: **no decay** — only ever increases.
