@@ -43,12 +43,14 @@ export default function Belle({ state = 'idle', size = 104 }: BelleProps) {
           style={{ left: `${m.x}%`, top: `${m.y}%`, animationDelay: m.delay }}
         />
       ))}
-      <span className="belle__firefly">
-        <span className="belle__ring belle__ring--outer" />
-        <span className="belle__ring belle__ring--inner" />
-        <span className="belle__wing belle__wing--left" />
-        <span className="belle__wing belle__wing--right" />
-        <span className="belle__body" />
+      <span className="belle__loop">
+        <span className="belle__firefly">
+          <span className="belle__ring belle__ring--outer" />
+          <span className="belle__ring belle__ring--inner" />
+          <span className="belle__wing belle__wing--left" />
+          <span className="belle__wing belle__wing--right" />
+          <span className="belle__body" />
+        </span>
       </span>
       {state === 'happy' && HEARTS.map((h, i) => (
         <svg

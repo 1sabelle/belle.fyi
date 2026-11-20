@@ -161,7 +161,7 @@ yet triggered by any logic.
 
 | State | Trigger | Animation sketch | Built? |
 |-------|---------|------------------|--------|
-| `idle` | default | gentle bob + sway; fast wing flap; twinkling motes | ✅ |
+| `idle` | default | gentle bob + sway; fast wing flap; a loop-the-loop every ~14s; twinkling motes | ✅ |
 | `listening` | input focused | glow rings brighten | ✅ |
 | `happy` | correct word | quick bounce + hearts float up and fade | ✅ |
 | `confused` | wrong word | wobble, dim body briefly | ✅ |

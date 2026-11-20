@@ -13,10 +13,17 @@
   animation: belle-sway 6s ease-in-out infinite;
 }
 
+/* every so often she flies a loop-the-loop, turning with the path */
+.belle__loop {
+  position: absolute;
+  inset: 4%;
+  animation: belle-loop 14s ease-in-out infinite;
+}
+
 /* the firefly: two stepped glow rings, a pair of wings, a flat body */
 .belle__firefly {
   position: absolute;
-  inset: 4%;
+  inset: 0;
   animation: belle-bob 2.6s ease-in-out infinite;
 }
 
@@ -79,10 +86,15 @@
 .belle--sleeping { opacity: 0.5; }
 .belle--sleeping .belle__firefly { animation-duration: 5s; }
 .belle--sleeping .belle__wing { animation-play-state: paused; }
+.belle--sleeping .belle__loop { animation: none; }
 
 @keyframes belle-sway {
   0%, 100% { transform: translateX(0); }
   50% { transform: translateX(10px); }
+}
+@keyframes belle-loop {
+  0%, 86% { transform: translateY(-40%) rotate(0deg) translateY(40%); }
+  100% { transform: translateY(-40%) rotate(-360deg) translateY(40%); }
 }
 @keyframes belle-bob {
   0%, 100% { transform: translateY(0); }
@@ -115,6 +127,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .belle,
+  .belle__loop,
   .belle__firefly,
   .belle__wing,
   .belle__mote,
