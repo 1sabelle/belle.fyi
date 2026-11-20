@@ -5,6 +5,75 @@
   z-index: 10;
 }
 
+/* Belle herself is the button that brings the bubble back */
+.belle-dock__belle {
+  display: block;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.belle-dock__belle:focus-visible {
+  outline: 2px solid var(--color-lilac);
+  outline-offset: 4px;
+  border-radius: 50%;
+}
+
+/* speech bubble above-left of Belle: a soft glowing pill with two little dots
+   trailing down to her, drifting with her sway and bob a beat behind */
+.belle-bubble {
+  position: absolute;
+  right: 72%;
+  bottom: 92%;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.45rem 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(208, 192, 230, 0.68);
+  box-shadow: 0 0 18px rgba(208, 192, 230, 0.35);
+  color: var(--color-navy);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+  animation:
+    belle-sway 6s ease-in-out 0.4s infinite,
+    belle-bubble-bob 2.6s ease-in-out 0.5s infinite;
+}
+.belle-bubble::before,
+.belle-bubble::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(208, 192, 230, 0.68);
+}
+.belle-bubble::before { right: 0.7rem; top: calc(100% + 3px); width: 7px; height: 7px; }
+.belle-bubble::after { right: 0.1rem; top: calc(100% + 11px); width: 4px; height: 4px; }
+
+.belle-bubble__close {
+  display: grid;
+  place-items: center;
+  width: 1.2rem;
+  height: 1.2rem;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-navy);
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1;
+  opacity: 0.55;
+  cursor: pointer;
+  transition: opacity 0.2s ease, background 0.2s ease;
+}
+.belle-bubble__close:hover,
+.belle-bubble__close:focus-visible {
+  opacity: 1;
+  background: rgba(24, 31, 48, 0.1);
+}
+
 .belle {
   --belle-size: 104px;
   position: relative;
@@ -111,6 +180,10 @@
   0%, 86% { transform: translateY(-40%) rotate(0deg) translateY(40%); }
   100% { transform: translateY(-40%) rotate(-360deg) translateY(40%); }
 }
+@keyframes belle-bubble-bob {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -5px; }
+}
 @keyframes belle-bob {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-7px); }
@@ -141,6 +214,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .belle-bubble,
   .belle,
   .belle__loop,
   .belle__firefly,
