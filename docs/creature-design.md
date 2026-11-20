@@ -222,9 +222,13 @@ interface Conversation {
 - `src/Sprite/` folder
   - `Belle.tsx` — the sprite + current animation state ✅ done
   - `Belle.css` — keyframes per state ✅ done
-  - `BellePanel.tsx` — the interactive shell (input, conversation UI)
+  - `BellePanel.tsx` — the interactive shell (input, conversation UI) ✅ first version: the
+    "talk to me!" bubble opens into a word form; a known word gets a single reply (no tiers,
+    trust or persistence yet)
+  - `BelleStars.tsx` — the special stars in the sky that carry Belle's words ✅
   - `useBelle.ts` — hook owning state, persistence, trust/word logic
-  - `belle.content.ts` — all tiers + conversations (the writing)
+  - `belle.content.ts` — all tiers + conversations (the writing) ✅ started: a flat list of
+    words (just "belle" for now), each with its star position and one reply
 - **Placement (decided):** mount it as a **fixed/floating corner companion** in `App.tsx` so it
   persists across all routes. Keep it small, quiet by default, and dismissible so it never
   competes with the portfolio content.

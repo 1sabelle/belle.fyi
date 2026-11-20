@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Sparkle from './Sparkle'
 import SparkleI from './SparkleI'
@@ -11,7 +10,8 @@ import ProjectList from './ProjectList'
 import { GitHubIcon, LinkedInIcon } from './SocialIcons'
 import MoonPreview from './MoonPreview'
 import { MoonPreviewProvider } from './MoonPreviewContext'
-import Belle from './Sprite/Belle'
+import BellePanel from './Sprite/BellePanel'
+import BelleStars from './Sprite/BelleStars'
 import './App.css'
 
 function Home() {
@@ -108,36 +108,13 @@ function FindMe() {
 }
 
 function App() {
-  const [isBubbleOpen, setIsBubbleOpen] = useState(true)
-
   return (
     <MessagesProvider>
     <MoonPreviewProvider>
       <Starfield />
       <MessageStars />
-      <div className="belle-dock">
-        {isBubbleOpen && (
-          <div className="belle-bubble">
-            talk to me!
-            <button
-              type="button"
-              className="belle-bubble__close"
-              aria-label="Close"
-              onClick={() => setIsBubbleOpen(false)}
-            >
-              ×
-            </button>
-          </div>
-        )}
-        <button
-          type="button"
-          className="belle-dock__belle"
-          aria-label="Talk to Belle"
-          onClick={() => setIsBubbleOpen(true)}
-        >
-          <Belle />
-        </button>
-      </div>
+      <BelleStars />
+      <BellePanel />
       <main className="container">
       <div className="hero__moon" aria-hidden="true">
         <MoonPreview />

@@ -28,7 +28,7 @@
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.4rem 0.45rem 0.4rem 0.9rem;
+  padding: 0 0.45rem 0 0;
   border-radius: 999px;
   background: rgba(208, 192, 230, 0.68);
   box-shadow: 0 0 18px rgba(208, 192, 230, 0.35);
@@ -51,7 +51,65 @@
 .belle-bubble::before { right: 0.7rem; top: calc(100% + 3px); width: 7px; height: 7px; }
 .belle-bubble::after { right: 0.1rem; top: calc(100% + 11px); width: 4px; height: 4px; }
 
+/* the whole "talk to me!" part of the pill opens the bubble */
+.belle-bubble__open {
+  padding: 0.4rem 0 0.4rem 0.9rem;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* opened: a small card that holds still while the visitor types */
+.belle-bubble--open {
+  align-items: flex-start;
+  width: min(17rem, calc(100vw - 12rem));
+  padding: 0.8rem 0.5rem 0.8rem 1rem;
+  border-radius: 1.1rem;
+  line-height: 1.4;
+  white-space: normal;
+  animation: none;
+}
+
+/* min-width: 0 lets the text and input shrink so the × stays inside the card */
+.belle-bubble__talk { flex: 1; min-width: 0; }
+
+.belle-bubble__intro { margin: 0 0 0.6rem; }
+
+.belle-bubble__form {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.belle-bubble__input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.35rem 0.7rem;
+  border: none;
+  border-radius: 999px;
+  background: rgba(24, 31, 48, 0.12);
+  color: var(--color-navy);
+  font: inherit;
+}
+.belle-bubble__input::placeholder { color: rgba(24, 31, 48, 0.5); }
+.belle-bubble__input:focus-visible { outline: 2px solid rgba(24, 31, 48, 0.35); }
+
+.belle-bubble__offer {
+  padding: 0.35rem 0.8rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--color-navy);
+  color: var(--color-lilac);
+  font: inherit;
+  cursor: pointer;
+}
+
+.belle-bubble__reply { margin: 0.6rem 0 0; }
+.belle-bubble__reply:empty { margin: 0; }
+
 .belle-bubble__close {
+  flex-shrink: 0;
   display: grid;
   place-items: center;
   width: 1.2rem;
@@ -59,19 +117,19 @@
   padding: 0;
   border: none;
   border-radius: 50%;
-  background: transparent;
+  background: none;
   color: var(--color-navy);
   font: inherit;
   font-size: 1rem;
+  font-weight: 700;
   line-height: 1;
-  opacity: 0.55;
   cursor: pointer;
-  transition: opacity 0.2s ease, background 0.2s ease;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
 }
 .belle-bubble__close:hover,
 .belle-bubble__close:focus-visible {
   opacity: 1;
-  background: rgba(24, 31, 48, 0.1);
 }
 
 .belle {
