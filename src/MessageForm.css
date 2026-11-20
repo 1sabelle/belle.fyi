@@ -166,3 +166,15 @@
     opacity: 1;
   }
 }
+
+/* phones: the field and the button each take the whole row */
+@media (max-width: 640px) {
+  .message-form__field {
+    flex-basis: 100%;
+  }
+
+  .message-form__submit {
+    flex: 1 1 100%;
+    padding: 0.7rem 1.2rem;
+  }
+}
