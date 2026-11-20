@@ -138,10 +138,26 @@
     color: var(--color-lilac);
   }
 
-  .hero__about-experience {
+  .hero__about-experience,
+  .hero__about-education {
     display: flex;
     align-items: center;
     gap: 0.6rem;
+  }
+
+  .hero__about-heading {
+    margin-top: 0.6rem;
+    font-family: var(--font-accent);
+    font-size: 0.95rem;
+    letter-spacing: 0.18em;
+    color: var(--color-periwinkle);
+  }
+
+  .hero__about-education {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-lilac);
   }
 
   .hero__about-star {

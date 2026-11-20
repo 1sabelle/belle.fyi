@@ -41,7 +41,6 @@ function Creations() {
 const PAST_EXPERIENCE = [
   'Software Engineer at Hedin IT, 2023–2026',
   'Integration Developer Consultant at Exsitec, 2021–2023',
-  'BSc in Informatics, University of Gothenburg, 2018–2021',
   'Analyst at HCL Technologies (part time), 2019',
 ]
 
@@ -57,6 +56,7 @@ function FindMe() {
         <span className="hero__about-label">who i am</span>
         <p className="hero__about-name">Isabelle Schafhauser</p>
         <p className="hero__about-role">Software Developer at Inet</p>
+        <span className="hero__about-heading">work experience</span>
         <ul className="hero__about-past">
           {PAST_EXPERIENCE.map(experience => (
             <li key={experience} className="hero__about-experience">
@@ -65,6 +65,11 @@ function FindMe() {
             </li>
           ))}
         </ul>
+        <span className="hero__about-heading">education</span>
+        <p className="hero__about-education">
+          <Sparkle size={10} className="hero__about-star" />
+          BSc in Informatics, University of Gothenburg, 2018–2021
+        </p>
       </div>
       <div className="hero__mail">
         <span className="hero__mail-label">send me a letter</span>
