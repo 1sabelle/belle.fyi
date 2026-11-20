@@ -70,7 +70,7 @@ function FindMe() {
         <span className="hero__about-heading">education</span>
         <p className="hero__about-education">
           <Sparkle size={10} className="hero__about-star" />
-          BSc in Informatics, University of Gothenburg, 2018–2021
+          BSc in Information Systems, University of Gothenburg, 2018–2021
         </p>
       </div>
       <div className="hero__mail">
