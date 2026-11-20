@@ -35,6 +35,12 @@ export default function BellePanel() {
     setOffered('')
   }
 
+  // the × minimises the open card (or closes the pill) and Belle starts over with her introduction
+  function dismissBubble() {
+    setBubble(bubble === 'open' ? 'prompt' : 'closed')
+    setReply('')
+  }
+
   return (
     <div className="belle-dock">
       {bubble !== 'closed' && (
@@ -67,7 +73,7 @@ export default function BellePanel() {
             type="button"
             className="belle-bubble__close"
             aria-label={bubble === 'open' ? 'Minimise' : 'Close'}
-            onClick={() => setBubble(bubble === 'open' ? 'prompt' : 'closed')}
+            onClick={dismissBubble}
           >
             ×
           </button>
