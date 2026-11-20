@@ -177,4 +177,11 @@
     flex: 1 1 100%;
     padding: 0.7rem 1.2rem;
   }
+
+  /* Safari zooms in on any field written smaller than 16px when it is focused;
+     the sizer measures the alias, so it grows with it */
+  .message-form__part,
+  .message-form__sizer {
+    font-size: 16px;
+  }
 }
