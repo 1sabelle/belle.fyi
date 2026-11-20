@@ -14,6 +14,9 @@ export const BELLE_WORDS: BelleWord[] = [
   },
 ]
 
+export const BELLE_INTRO = 'Hello, I\'m Belle! If you\'d like to get to know me, find something '
+  + 'written on a star and input it below to see what I have to say about it'
+
 export const UNKNOWN_WORD_REPLY = 'Hmm, I don\'t know that word. Is it really written on one of my stars?'
 
 // exact match after trimming, lowercasing and dropping punctuation

@@ -1,6 +1,6 @@
 import { useRef, useState, type FormEvent } from 'react'
 import Belle, { type BelleState } from './Belle'
-import { findBelleWord, UNKNOWN_WORD_REPLY } from './belle.content'
+import { BELLE_INTRO, findBelleWord, UNKNOWN_WORD_REPLY } from './belle.content'
 
 type BubbleState = 'closed' | 'prompt' | 'open'
 
@@ -47,10 +47,8 @@ export default function BellePanel() {
               )
             : (
                 <div className="belle-bubble__talk">
-                  <p className="belle-bubble__intro">
-                    Hello, I'm Belle! If you'd like to get to know me, find something written on a
-                    star and input it below to see what I have to say about it
-                  </p>
+                  {/* Belle's latest reply takes the place of the introduction */}
+                  <p className="belle-bubble__says" aria-live="polite">{reply || BELLE_INTRO}</p>
                   <form className="belle-bubble__form" onSubmit={offerWord}>
                     <input
                       className="belle-bubble__input"
@@ -63,7 +61,6 @@ export default function BellePanel() {
                     />
                     <button type="submit" className="belle-bubble__offer">offer</button>
                   </form>
-                  <p className="belle-bubble__reply" aria-live="polite">{reply}</p>
                 </div>
               )}
           <button

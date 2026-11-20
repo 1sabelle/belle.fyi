@@ -75,7 +75,7 @@
 /* min-width: 0 lets the text and input shrink so the × stays inside the card */
 .belle-bubble__talk { flex: 1; min-width: 0; }
 
-.belle-bubble__intro { margin: 0 0 0.6rem; }
+.belle-bubble__says { margin: 0 0 0.6rem; }
 
 .belle-bubble__form {
   display: flex;
@@ -105,8 +105,6 @@
   cursor: pointer;
 }
 
-.belle-bubble__reply { margin: 0.6rem 0 0; }
-.belle-bubble__reply:empty { margin: 0; }
 
 .belle-bubble__close {
   flex-shrink: 0;
