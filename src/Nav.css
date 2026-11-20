@@ -99,3 +99,9 @@
     white-space: nowrap;
   }
  
+  @media (max-width: 640px) {
+    .nav {
+      justify-content: space-around;
+      gap: 1rem;
+    }
+  }

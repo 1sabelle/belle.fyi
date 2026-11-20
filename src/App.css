@@ -313,3 +313,43 @@
       animation: none;
     }
   }
+
+  /* phones: the moon text has no room beside the content, so it follows it
+     instead, with the moon rising behind it from the bottom-right corner */
+  @media (max-width: 640px) {
+    .container {
+      padding: 2rem 1rem 3rem;
+    }
+
+    .masthead {
+      gap: 1.5rem;
+    }
+
+    .masthead__title,
+    .masthead .nav {
+      flex: 1 1 100%;
+    }
+
+    .hero {
+      min-height: 0;
+      margin-top: 3rem;
+    }
+
+    .hero__moon {
+      right: 0;
+      width: 48rem;
+    }
+
+    .hero__moon-block {
+      position: relative;
+      right: auto;
+      bottom: auto;
+      align-self: flex-end;
+      margin-top: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero__moon-text {
+      font-size: 1.6rem;
+    }
+  }
