@@ -41,3 +41,13 @@ export function CuivienenIcon() {
     </svg>
   )
 }
+
+// an open eye with a star for its pupil, from the seer school favicon
+export function SeerSchoolIcon() {
+  return (
+    <svg className="project-icon" viewBox="3 3 26 26" aria-hidden="true">
+      <path d="M4 16 Q16 5 28 16 Q16 27 4 16 Z" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+      <path d="M16 10.8 L17.2 14.8 L21.2 16 L17.2 17.2 L16 21.2 L14.8 17.2 L10.8 16 L14.8 14.8 Z" fill="currentColor" />
+    </svg>
+  )
+}
