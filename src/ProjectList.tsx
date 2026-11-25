@@ -18,7 +18,7 @@ type Project = {
 const PROJECTS: Project[] = [
   { name: 'kaleidoscope', url: 'https://kaleidoscope.belle.fyi', description: 'a palette creator', Icon: KaleidoscopeIcon, preview: kaleidoscopePreview },
   { name: 'tide', url: 'https://tide.belle.fyi', description: 'a cycle tracker', Icon: TideIcon, preview: tidePreview },
-  { name: 'seer school', url: 'https://seer.belle.fyi', description: 'a tarot study companion', Icon: SeerSchoolIcon, preview: seerSchoolPreview },
+  { name: 'seer', url: 'https://seer.belle.fyi', description: 'a tarot study companion', Icon: SeerSchoolIcon, preview: seerSchoolPreview },
   { name: 'cuiviénen', url: 'https://github.com/1sabelle/cuivienen', description: 'a calm navy theme', Icon: CuivienenIcon },
 ]
 
